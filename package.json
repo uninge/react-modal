@@ -102,5 +102,12 @@
     "reat-window",
     "react-component"
   ],
+	"files": [
+		"dist",
+		"README.md",
+		"package.json",
+		"package-lock.json",
+		"LICENSE"
+	],
   "license": "MIT"
 }

@@ -1,7 +1,7 @@
 export const DEFAULT_WIDTH = 300;
 export const DEFAULT_HEIGHT = 300;
-export const DEFAULT_MIN_WIDTH = 120;
-export const DEFAULT_MIN_HEIGHT = 100;
+export const DEFAULT_MIN_WIDTH = 256;
+export const DEFAULT_MIN_HEIGHT = 200;
 export const DEFAULT_STEP = 5;
 
 export const windowStage = {
