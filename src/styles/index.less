@@ -1,0 +1,246 @@
+.fy-mask {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 10001;
+	width: 100%;
+	height: 100%;
+	background-color: #000;
+	opacity: 0.5;
+}
+.fy-window {
+	position: absolute;
+	z-index: 10002;
+	box-sizing: border-box;
+	display: inline-flex;
+	flex-direction: column;
+	padding: 0;
+	overflow: hidden;
+	font-size: 14px;
+	line-height: 20 / 14;
+	color: #656565;
+	background-color: #fff;
+	background-clip: padding-box;
+	border: 0 solid rgba(0, 0, 0, 0.08);
+	border-radius: 0;
+	outline: 0;
+	box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.06);
+	&:focus,
+	&.fy-state-focused {
+		box-shadow: 1px 1px 7px 1px rgba(0, 0, 0, 0.3);
+	}
+}
+
+// title bar
+.fy-window-title-bar {
+	display: flex;
+	flex-direction: row;
+	flex-shrink: 0;
+	align-items: center;
+	padding: 16px;
+	color: #fff;
+	white-space: nowrap;
+	user-select: none;
+	background-color: #ff6358;
+	background-clip: padding-box;
+	border-color: inherit;
+	border-style: solid;
+	border-width: 0 0 1px;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+	.window-title {
+		display: flex;
+		flex: 1 1;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		margin: 0;
+		overflow: hidden;
+		font-size: 16px;
+		line-height: 20 / 16;
+		text-overflow: ellipsis;
+	}
+	.window-actions {
+		display: flex;
+		flex-direction: row;
+		flex-shrink: 0;
+		align-items: center;
+		margin: -5px;
+	}
+}
+
+.fy-window-minimized .fy-window-title-bar {
+	border-width: 0;
+}
+
+// content
+.fy-window-content {
+	position: relative;
+	flex: 1 1 auto;
+	padding: 16px 16px;
+	overflow: auto;
+	color: inherit;
+	background: none;
+	border-color: inherit;
+	border-width: 0;
+	outline: 0;
+}
+
+// footer
+.fy-window-footer {
+	display: flex;
+	align-content: center;
+	justify-content: flex-end;
+	padding: 10px 16px;
+	color: #fff;
+	border-top: 1px solid #f0f0f0;
+	button + button {
+		margin-left: 10px;
+	}
+	.footer-button {
+		height: 32px;
+		padding: 4px 15px;
+		color: #333;
+		text-align: center;
+		background: #fff;
+		border: 1px solid #f0f0f0;
+		border-radius: 2px;
+		box-shadow: 0 2px 0 rgba(0, 0, 0, 0.015);
+		transition: all 0.218s ease-in-out;
+
+		&:hover {
+			color: #ff6358;
+			border: 1px solid #ff6358;
+		}
+
+		&.button-primary {
+			color: #fff;
+			background-color: #ff6358;
+
+			&:hover::before {
+				opacity: 0.18;
+			}
+		}
+	}
+}
+
+// resize
+.fy-resize-handle {
+	position: absolute;
+	z-index: 200;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-color: inherit;
+	&.n {
+		top: -3px;
+		left: 0;
+		width: 100%;
+		height: 6px;
+		cursor: n-resize;
+	}
+	&.e {
+		top: 0;
+		right: -3px;
+		width: 6px;
+		height: 100%;
+		cursor: w-resize;
+	}
+	&.s {
+		bottom: -3px;
+		left: 0;
+		width: 100%;
+		height: 6px;
+		cursor: s-resize;
+	}
+	&.w {
+		top: 0;
+		left: -3px;
+		width: 6px;
+		height: 100%;
+		cursor: w-resize;
+	}
+	&.se,
+	&.sw,
+	&.ne,
+	&.nw {
+		width: 6px;
+		height: 6px;
+	}
+	&.se {
+		right: -3px;
+		bottom: -3px;
+		cursor: se-resize;
+	}
+	&.sw {
+		bottom: -3px;
+		left: -3px;
+		cursor: sw-resize;
+	}
+	&.ne {
+		top: -3px;
+		right: -3px;
+		cursor: ne-resize;
+	}
+	&.nw {
+		top: -3px;
+		left: -3px;
+		cursor: nw-resize;
+	}
+}
+
+// button
+.fy-button {
+	position: relative;
+	box-sizing: border-box;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 4px 8px;
+	font-size: 14px;
+	line-height: 20 / 14;
+	color: inherit;
+	text-align: center;
+	text-decoration: none;
+	text-transform: none;
+	white-space: nowrap;
+	cursor: pointer;
+	user-select: none;
+	background-color: transparent;
+	background-clip: padding-box;
+	border: 1px solid transparent;
+	border-radius: 2px;
+	outline: none;
+	box-shadow: none;
+	transition: color 0.218s ease-in-out;
+	&::before {
+		position: absolute;
+		top: -1px;
+		right: -1px;
+		bottom: -1px;
+		left: -1px;
+		z-index: 0;
+		display: block;
+		pointer-events: none;
+		content: '';
+		background: currentColor;
+		border-radius: inherit;
+		opacity: 0;
+		transition: opacity 0.218s ease-in-out;
+	}
+	&:hover::before {
+		opacity: 0.08;
+	}
+}
+
+// icon
+.fy-button-icon {
+	width: calc(20 / 14 * 1em + 10px);
+	height: calc(20 / 14 * 1em + 10px);
+}
+
+.fy-icon {
+	width: 1em;
+	height: 1em;
+	font-size: 14px;
+	fill: currentColor;
+}

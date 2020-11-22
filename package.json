@@ -1,0 +1,106 @@
+{
+  "name": "react-modal",
+  "version": "0.0.1",
+  "description": "Accessible modal dialog component for React.JS",
+  "main": "dist/index.js",
+  "author": "uninge <uninge@163.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/uninge/react-modal.git"
+  },
+  "homepage": "https://github.com/uninge/react-modal",
+  "bugs": "https://github.com/uninge/react-modal/issues",
+  "scripts": {
+    "start": "npm run clean && rollup -c -w",
+    "build": "npm run clean && npm run svgo && rollup -c",
+    "svgo": "svgo -f src/assets --config=./.svgo.yml",
+    "dts": "npm-dts --entry=src/index.js --output=./dist1 generate",
+    "clean": "rimraf ./dist",
+    "lint": "eslint --fix --ext .js src",
+    "lint-staged": "lint-staged",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/preset-react": "^7.12.5",
+    "@babel/runtime-corejs3": "^7.12.5",
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
+    "@rollup/plugin-babel": "^5.2.1",
+    "@rollup/plugin-commonjs": "^16.0.0",
+    "@rollup/plugin-node-resolve": "^10.0.0",
+    "@rollup/plugin-url": "^5.0.1",
+    "@svgr/rollup": "^5.5.0",
+    "babel-eslint": "^10.1.0",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "core-js": "^3.7.0",
+    "eslint": "^7.14.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-friendly-formatter": "^4.0.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "husky": "^4.3.0",
+    "i": "^0.3.6",
+    "less": "^3.12.2",
+    "lint-staged": "^10.5.1",
+    "npm": "^6.14.9",
+    "prettier": "^2.2.0",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.33.3",
+    "rollup-plugin-dts": "^1.4.14",
+    "rollup-plugin-eslint": "^7.0.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^3.1.8",
+    "rollup-plugin-stylelint": "^1.0.0",
+    "rollup-plugin-typescript2": "^0.29.0",
+    "stylelint": "^13.8.0",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-recess-order": "^2.3.0",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-declaration-block-no-ignored-properties": "^2.3.0",
+    "stylelint-order": "^4.1.0",
+    "svgo": "^1.3.2",
+    "typescript": "^4.1.2"
+  },
+  "optionalDependencies": {
+    "prop-types": "^15.7.2",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-push": "echo \"\n九尺高台，起于垒土。感谢有你！\n\""
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,json}": [
+      "npm run lint",
+      "prettier -c --write",
+      "prettier --check --end-of-line auto"
+    ]
+  },
+  "tags": [
+    "react",
+    "modal",
+    "dialog",
+    "window"
+  ],
+  "keywords": [
+    "react",
+    "modal",
+    "dialog",
+    "window",
+    "reat-maodl",
+    "reat-dialog",
+    "reat-window",
+    "react-component"
+  ],
+  "license": "MIT"
+}
