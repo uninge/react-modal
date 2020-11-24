@@ -3,9 +3,7 @@ import { eslint } from "rollup-plugin-eslint";
 import external from 'rollup-plugin-peer-deps-external';
 import postcss from 'rollup-plugin-postcss';
 import svgr from '@svgr/rollup';
-import babel from '@rollup/plugin-babel';
 import typescript from 'rollup-plugin-typescript2';
-// import commonjs from "@rollup/plugin-commonjs";
 
 import pkg from './package.json';
 
@@ -16,7 +14,7 @@ const globals = {
 };
 
 export default {
-  input: 'src/index.js',
+  input: 'src/index.ts',
   external: Object.keys(globals),
   output: [
     {
@@ -34,18 +32,15 @@ export default {
 		}),
 		eslint({
 			useEslintrc: true,
-			include: ['**/*.js'],
+			include: ['**/*.{ts,tsx}'],
 		}),
 		postcss({
 			extract: `index.css`,
 		}),
 		external(),
     svgr(),
-    babel({
-			babelHelpers: 'bundled',
-			extensions: ['js']
-    }),
-		typescript(),
-		// commonjs(),
+		typescript({
+			clean: true,
+		}),
   ],
 };

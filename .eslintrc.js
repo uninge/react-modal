@@ -24,9 +24,10 @@ module.exports = {
 		process: true,
 		__dirname: true,
 	},
-	// parser: '@typescript-eslint/parser',
-	parser: 'babel-eslint',
+	parser: '@typescript-eslint/parser',
+	// parser: 'babel-eslint',
 	parserOptions: {
+		projectFolderIgnoreList: ['dist', '**/node_modules/**'],
 		ecmaVersion: 2018,
 		ecmaFeatures: {
 			experimentalObjectRestSpread: true,
@@ -70,7 +71,7 @@ module.exports = {
 		'no-script-url': OFF,
 		'no-iterator': ERROR,
 		'no-lonely-if': ERROR,
-		'no-unused-vars': ERROR,
+		'no-unused-vars': OFF,
 		'no-new-object': ERROR,
 		'no-undef-init': ERROR,
 		'no-multi-assign': OFF,

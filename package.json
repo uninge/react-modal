@@ -11,13 +11,18 @@
   "homepage": "https://github.com/uninge/react-modal",
   "bugs": "https://github.com/uninge/react-modal/issues",
   "scripts": {
-    "start": "npm run clean && rollup -c -w",
+    "start": "rollup -c -w",
     "build": "npm run clean && npm run svgo && rollup -c",
     "svgo": "svgo -f src/assets --config=./.svgo.yml",
     "clean": "rimraf ./dist",
     "lint": "eslint --fix --ext .js src",
     "lint-staged": "lint-staged",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "prop-types": "^15.7.2",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
   },
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.12.1",
@@ -31,7 +36,9 @@
     "@rollup/plugin-node-resolve": "^10.0.0",
     "@rollup/plugin-url": "^5.0.1",
     "@svgr/rollup": "^5.5.0",
-    "babel-eslint": "^10.1.0",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@typescript-eslint/parser": "^4.8.1",
     "babel-plugin-external-helpers": "^6.22.0",
     "core-js": "^3.7.0",
     "eslint": "^7.14.0",
@@ -100,12 +107,12 @@
     "reat-window",
     "react-component"
   ],
-	"files": [
-		"dist",
-		"README.md",
-		"package.json",
-		"package-lock.json",
-		"LICENSE"
-	],
+  "files": [
+    "dist",
+    "README.md",
+    "package.json",
+    "package-lock.json",
+    "LICENSE"
+  ],
   "license": "MIT"
 }

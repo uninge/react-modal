@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { createPortal } from 'react-dom';
-import PropTypes from 'prop-types';
 
 import Optimization from './optimization';
 import TitleBar from './title-bar';
@@ -16,9 +15,105 @@ import {
 	windowStage,
 	keys,
 } from './utils/config';
+import { IDraggableEvent } from './draggable';
+import {
+	IDraggableCoreMouseDragEvent as MouseDragEvent,
+	IDraggableCoreTouchDragEvent as TouchDragEvent,
+} from './utils/draggable-core';
 
-export default class Modal extends Component {
-	constructor(props) {
+export interface IStageChangeEvent {
+	nativeEvent: MouseEvent;
+	state: string;
+	syntheticEvent: React.MouseEvent;
+	target: Modal;
+}
+
+export interface IModalEvent {
+	width: number;
+	height: number;
+	top: number;
+	left: number;
+	target: Modal;
+	nativeEvent: PointerEvent,
+	drag: boolean;
+	end: boolean;
+}
+
+export interface IModalProps {
+	appendContainer?: HTMLElement;
+	visible?: boolean;
+	keyboard?: boolean;
+	mask?: boolean;
+	maskStyle?: { [key: string]: string | number };
+	maskClassName?: string;
+	maskClosable?: boolean;
+	shouldUpdateOnDrag?: boolean;
+	stage?: string;
+	onCancel?: () => void;
+	onOk?: () => void;
+
+	// draggable、resizable
+	draggable?: boolean;
+	resizable?: boolean;
+	stageChangeByDoubleClick?: boolean;
+	onMove?: (event: MouseDragEvent | TouchDragEvent | IDraggableEvent | IStageChangeEvent | IModalEvent) => void;
+	onResize?: (event: MouseDragEvent | TouchDragEvent | IDraggableEvent | IStageChangeEvent | IModalEvent) => void;
+	onStageChange?: (event: IStageChangeEvent) => void;
+
+	// container styles
+	style?: { [key: string]: string | number };
+	className?: string;
+	width?: number;
+	height?: number;
+	top?: number;
+	left?: number;
+	initialWidth?: number;
+	initialHeight?: number;
+	initialTop?: number;
+	initialLeft?: number;
+	minWidth?: number;
+	minHeight?: number;
+	zIndex?: number;
+
+	// title bar
+	title?: string;
+	titleBarClassName?: string;
+	minimizeButton?: React.ReactElement;
+	maximizeButton?: React.ReactElement;
+	restoreButton?: React.ReactElement;
+	closeButton?: React.ReactElement;
+
+	// content
+	contentClassName?: string;
+	children?: React.ReactElement;
+
+	// footer
+	footerClassName?: string;
+	showCancel?: boolean;
+	showOk?: boolean;
+	cancelText?: string;
+	okText?: string;
+}
+
+export interface IModalState {
+	stage?: string;
+	width: number;
+	height: number;
+	top: number;
+	left: number;
+	isDragging: boolean;
+}
+
+export default class Modal extends Component<IModalProps, IModalState> {
+	private windowCoordinatesState: {
+		leftBeforeAction: number;
+		widthBeforeAction: number;
+		topBeforeAction: number;
+		differenceLeft: number;
+		differenceTop: number;
+		heightBeforeAction: number;
+	};
+	constructor(props: Readonly<IModalProps>) {
 		super(props);
 		this.state = {
 			stage: props.stage || windowStage.DEFAULT,
@@ -26,6 +121,7 @@ export default class Modal extends Component {
 			height: this.getInitialHeight(),
 			top: this.getInitialTop(),
 			left: this.getInitialLeft(),
+			isDragging: false,
 		};
 
 		this.windowCoordinatesState = {
@@ -33,21 +129,26 @@ export default class Modal extends Component {
 			heightBeforeAction: this.getInitialHeight(),
 			topBeforeAction: this.getInitialTop(),
 			leftBeforeAction: this.getInitialLeft(),
-			// differenceTop,
-			// differenceLeft,
+			differenceTop: 0,
+			differenceLeft: 0,
 		};
 	}
 
-	onHandleKeyDown = (event) => {
+	onHandleKeyDown = (event: React.KeyboardEvent) => {
+		const { keyboard = true, resizable = true } = this.props;
+		const minWidth = this.props.minWidth || DEFAULT_MIN_WIDTH;
+		const minHeight = this.props.minHeight || DEFAULT_MIN_HEIGHT;
+
+		if (!keyboard) {
+			return;
+		}
+
 		if (event.target !== event.currentTarget) {
 			return;
 		}
 
-		const minWidth = this.props.minWidth || DEFAULT_MIN_WIDTH;
-		const minHeight = this.props.minHeight || DEFAULT_MIN_HEIGHT;
-
 		// resize
-		if (event.ctrlKey && this.props.resizable) {
+		if (event.ctrlKey && resizable) {
 			switch (event.keyCode) {
 				case keys.up:
 					event.preventDefault();
@@ -72,7 +173,9 @@ export default class Modal extends Component {
 				default:
 					return;
 			}
-			this.dispatchMoveEvent(this.props.onResize, event, false, undefined);
+			if (this.props.onResize) {
+				this.dispatchMoveEvent(this.props.onResize, event, false, false);
+			}
 			return;
 		}
 
@@ -129,11 +232,18 @@ export default class Modal extends Component {
 			}
 		}
 
-		this.dispatchMoveEvent(this.props.onMove, event, false, undefined);
+		if (this.props.onMove) {
+			this.dispatchMoveEvent(this.props.onMove, event, false, false);
+		}
 	};
 
 	// eslint-disable-next-line max-params
-	dispatchMoveEvent(callback, event, drag, end) {
+	dispatchMoveEvent(
+		callback: { (event: IStageChangeEvent | IModalEvent): void },
+		event: any,
+		drag: boolean,
+		end: boolean,
+	) {
 		if (!callback) {
 			return;
 		}
@@ -150,7 +260,7 @@ export default class Modal extends Component {
 	}
 
 	// eslint-disable-next-line react/sort-comp
-	handleMinimize = (event) => {
+	handleMinimize = (event: React.MouseEvent | React.KeyboardEvent) => {
 		event.preventDefault();
 
 		this.windowCoordinatesState.widthBeforeAction = this.width;
@@ -165,7 +275,7 @@ export default class Modal extends Component {
 		dispatchEvent(this.props.onStageChange, event, this, { state: windowStage.MINIMIZED });
 	};
 
-	handleFullscreen = (event) => {
+	handleFullscreen = (event: React.MouseEvent | React.KeyboardEvent) => {
 		event.preventDefault();
 
 		this.windowCoordinatesState.widthBeforeAction = this.width;
@@ -183,7 +293,7 @@ export default class Modal extends Component {
 		dispatchEvent(this.props.onStageChange, event, this, { state: windowStage.FULLSCREEN });
 	};
 
-	handleRestore = (event) => {
+	handleRestore = (event: React.MouseEvent | React.KeyboardEvent) => {
 		event.preventDefault();
 
 		if (this.windowStage === windowStage.MINIMIZED) {
@@ -204,24 +314,26 @@ export default class Modal extends Component {
 		dispatchEvent(this.props.onStageChange, event, this, { state: windowStage.DEFAULT });
 	};
 
-	onHandleMaskClick = (event) => {
-		if (this.props.maskClosable) {
+	onHandleMaskClick = (event: React.MouseEvent) => {
+		const { maskClosable = true } = this.props;
+		if (maskClosable) {
 			this.handleCloseWindow(event);
 		}
 	};
 
-	handleCloseWindow = (event) => {
+	handleCloseWindow = (event: React.MouseEvent | React.KeyboardEvent) => {
 		event.preventDefault();
 		dispatchEvent(this.props.onCancel, event, this, { state: undefined });
 	};
 
-	onHandleOk = (event) => {
+	onHandleOk = (event: React.MouseEvent) => {
 		event.preventDefault();
 		dispatchEvent(this.props.onOk, event, this, { state: undefined });
 	};
 
-	doubleClickStageChange = (event) => {
-		if (!this.props.stageChangeByDoubleClick) {
+	doubleClickStageChange = (event: React.MouseEvent) => {
+		const { stageChangeByDoubleClick = true } = this.props;
+		if (!stageChangeByDoubleClick) {
 			return;
 		}
 
@@ -232,15 +344,15 @@ export default class Modal extends Component {
 		}
 	};
 
-	onPress = (data) => {
+	onPress = (data: IDraggableEvent) => {
 		const e = data.event;
 		this.windowCoordinatesState.differenceTop = e.pageY - this.top;
 		this.windowCoordinatesState.differenceLeft = e.pageX - this.left;
 	};
 
-	onDrag = (data) => {
+	onDrag = (data: IDraggableEvent) => {
 		const e = data.event;
-		const { draggable, onMove } = this.props;
+		const { draggable = true, onMove } = this.props;
 
 		e.originalEvent.preventDefault();
 
@@ -256,12 +368,12 @@ export default class Modal extends Component {
 		}
 	};
 
-	onRelease = (data) => {
+	onRelease = (data: IDraggableEvent) => {
 		const e = data.event;
-		const { draggable, onMove } = this.props;
+		const { draggable = true, onMove } = this.props;
 
 		if (this.windowStage !== windowStage.FULLSCREEN && draggable) {
-			if (this.props.onMove) {
+			if (onMove) {
 				this.dispatchMoveEvent(onMove, e, true, true);
 			}
 		}
@@ -271,7 +383,7 @@ export default class Modal extends Component {
 		});
 	};
 
-	onHandleResize = (event, props) => {
+	onHandleResize = (event: TouchDragEvent | MouseDragEvent, props: { direction: string; end: boolean }) => {
 		const currentWidth = this.width;
 		const currentHeight = this.height;
 		const minWidth = this.props.minWidth || DEFAULT_MIN_WIDTH;
@@ -296,7 +408,9 @@ export default class Modal extends Component {
 			newState.width = newWidth;
 		}
 		this.setState(newState);
-		this.dispatchMoveEvent(this.props.onResize, event, true, props.end);
+		if (this.props.onResize) {
+			this.dispatchMoveEvent(this.props.onResize, event, true, props.end);
+		}
 	};
 
 	getInitialWidth() {
@@ -399,19 +513,19 @@ export default class Modal extends Component {
 
 		const {
 			appendContainer,
-			mask,
+			mask = true,
 			maskStyle,
 			maskClassName,
-			shouldUpdateOnDrag,
-			draggable,
-			resizable,
+			shouldUpdateOnDrag = false,
+			draggable = true,
+			resizable = true,
 
 			title,
 			titleBarClassName,
 
 			style,
 			className,
-			zIndex,
+			zIndex = 1000,
 
 			contentClassName,
 			children,
@@ -428,7 +542,7 @@ export default class Modal extends Component {
 			<>
 				{mask && (
 					<div
-						style={maskStyle}
+						style={{ ...maskStyle, zIndex }}
 						className={classNames('fy-mask', maskClassName)}
 						onClick={this.onHandleMaskClick}
 					/>
@@ -439,8 +553,8 @@ export default class Modal extends Component {
 						height: this.height,
 						top: this.top,
 						left: this.left,
+						zIndex: zIndex + 1,
 						...style,
-						zIndex,
 					}}
 					className={classNames('fy-window', className, {
 						'fy-window-minimized': this.state.stage === 'MINIMIZED',
@@ -450,6 +564,7 @@ export default class Modal extends Component {
 					onBlur={(e) => e.target.classList.remove('fy-state-focused')}
 					onKeyDown={this.onHandleKeyDown}
 				>
+					{/* @ts-ignore */}
 					<Optimization shouldUpdateOnDrag={shouldUpdateOnDrag} isDragging={isDragging}>
 						<TitleBar
 							className={titleBarClassName}
@@ -495,83 +610,14 @@ export default class Modal extends Component {
 			</>
 		);
 
-		if (appendContainer === 'origin') {
-			return Window;
+		if (!appendContainer) {
+			return createPortal(Window, document.body);
 		}
 
-		if (!appendContainer || appendContainer instanceof HTMLElement) {
-			return createPortal(Window, appendContainer || document.body);
+		if (appendContainer instanceof HTMLElement) {
+			return createPortal(Window, appendContainer);
 		}
 
 		return Window;
 	}
 }
-
-Modal.propTypes = {
-	appendContainer: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(HTMLElement)]),
-	visible: PropTypes.bool,
-	mask: PropTypes.bool,
-	maskStyle: PropTypes.object,
-	maskClassName: PropTypes.string,
-	maskClosable: PropTypes.bool,
-	shouldUpdateOnDrag: PropTypes.bool,
-	stage: PropTypes.oneOf(Object.keys(windowStage)),
-	onCancel: PropTypes.func,
-	onOk: PropTypes.func,
-
-	// draggable、resizable
-	draggable: PropTypes.bool,
-	resizable: PropTypes.bool,
-	stageChangeByDoubleClick: PropTypes.bool,
-	onMove: PropTypes.func,
-	onResize: PropTypes.func,
-	onStageChange: PropTypes.func,
-
-	// container styles
-	style: PropTypes.object,
-	className: PropTypes.string,
-	width: PropTypes.number,
-	height: PropTypes.number,
-	top: PropTypes.number,
-	left: PropTypes.number,
-	initialWidth: PropTypes.number,
-	initialHeight: PropTypes.number,
-	initialTop: PropTypes.number,
-	initialLeft: PropTypes.number,
-	minWidth: PropTypes.number,
-	minHeight: PropTypes.number,
-	zIndex: PropTypes.number,
-
-	// title bar
-	title: PropTypes.string,
-	titleBarClassName: PropTypes.string,
-	minimizeButton: PropTypes.element,
-	maximizeButton: PropTypes.element,
-	restoreButton: PropTypes.element,
-	closeButton: PropTypes.element,
-
-	// content
-	contentClassName: PropTypes.string,
-	children: PropTypes.any,
-
-	// footer
-	footerClassName: PropTypes.string,
-	showCancel: PropTypes.bool,
-	showOk: PropTypes.bool,
-	cancelText: PropTypes.string,
-	okText: PropTypes.string,
-};
-
-Modal.defaultProps = {
-	visible: false,
-	mask: true,
-	maskClosable: true,
-	shouldUpdateOnDrag: false,
-	minWidth: DEFAULT_MIN_WIDTH,
-	minHeight: DEFAULT_MIN_HEIGHT,
-	draggable: true,
-	resizable: true,
-	stageChangeByDoubleClick: true,
-
-	zIndex: 10003,
-};

@@ -1,14 +1,6 @@
 module.exports = {
 	root: true,
-	parser: 'babel-eslint',
-	parserOptions: {
-		parser: 'babel-eslint',
-		sourceType: 'module',
-	},
-	env: {
-		browser: true, // 开发环境配置表示可以使用浏览器的方法
-		node: true,
-	},
+	ignoreFiles: ['**/*.ts', '**/*.tsx'],
 	plugins: ['stylelint-order', 'stylelint-declaration-block-no-ignored-properties'],
 	extends: [
 		'stylelint-config-standard',

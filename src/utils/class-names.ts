@@ -1,4 +1,4 @@
-export default function classNames(...names) {
+export default function classNames(...names: any[]): string {
 	return names
 		.filter(Boolean)
 		.map(arg => {

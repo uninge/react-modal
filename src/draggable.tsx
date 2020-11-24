@@ -1,10 +1,30 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
 import { DraggableCore } from './utils';
+import {
+	IDraggableCoreMouseDragEvent as MouseDragEvent,
+	IDraggableCoreTouchDragEvent as TouchDragEvent,
+} from './utils/draggable-core';
 
-export default class Draggable extends Component {
-	constructor(props) {
+export interface IDraggableEvent {
+	target: any,
+	event: MouseDragEvent | TouchDragEvent ,
+	element: HTMLElement,
+}
+
+export interface IDraggable {
+	onPress?: (e: IDraggableEvent) => void;
+	onDrag?: (e: IDraggableEvent) => void;
+	onRelease?: (e: IDraggableEvent) => void;
+	children: React.ReactElement;
+}
+
+export default class Draggable extends Component<IDraggable> {
+	private element: null | HTMLElement;
+	private readonly assignRef: (element: HTMLElement) => void;
+	private draggable: DraggableCore;
+
+	constructor(props: Readonly<IDraggable>) {
 		super(props);
 
 		const { onPress, onDrag, onRelease } = props;
@@ -19,8 +39,8 @@ export default class Draggable extends Component {
 			press: event => {
 				if (this.element && onPress) {
 					onPress.call(undefined, {
-						target: this,
 						event,
+						target: this,
 						element: this.element,
 					});
 				}
@@ -28,8 +48,8 @@ export default class Draggable extends Component {
 			drag: event => {
 				if (this.element && onDrag) {
 					onDrag.call(undefined, {
-						target: this,
 						event,
+						target: this,
 						element: this.element,
 					});
 				}
@@ -39,6 +59,7 @@ export default class Draggable extends Component {
 					onRelease.call(undefined, {
 						event,
 						target: this,
+						element: this.element,
 					});
 				}
 			},
@@ -62,10 +83,3 @@ export default class Draggable extends Component {
 		});
 	}
 }
-
-Draggable.propTypes = {
-	onPress: PropTypes.func,
-	onDrag: PropTypes.func,
-	onRelease: PropTypes.func,
-	children: PropTypes.element.isRequired,
-};
