@@ -42,6 +42,7 @@ export interface IModalEvent {
 export interface IModalProps {
 	appendContainer?: HTMLElement;
 	visible?: boolean;
+	theme?: string;
 	keyboard?: boolean;
 	mask?: boolean;
 	maskStyle?: { [key: string]: string | number };
@@ -513,6 +514,7 @@ export default class Modal extends Component<IModalProps, IModalState> {
 
 		const {
 			appendContainer,
+			theme,
 			mask = true,
 			maskStyle,
 			maskClassName,
@@ -556,7 +558,7 @@ export default class Modal extends Component<IModalProps, IModalState> {
 						zIndex: zIndex + 1,
 						...style,
 					}}
-					className={classNames('fy-window', className, {
+					className={classNames('fy-window', className, theme, {
 						'fy-window-minimized': this.state.stage === 'MINIMIZED',
 					})}
 					tabIndex={-1}

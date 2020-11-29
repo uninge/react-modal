@@ -98,7 +98,9 @@ export default class TitleBar extends Component<ITitleBar> {
 					className={classNames('fy-window-title-bar', className)}
 					onDoubleClick={onDoubleClick}
 				>
-					<div className="window-title">{children || ''}</div>
+					<div className="window-title">
+						<span className="text">{children || ''}</span>
+					</div>
 					<div className="window-actions">
 						{stage === windowStage.DEFAULT && minimizeButtonRender}
 						{stage === windowStage.DEFAULT && maximizeButtonRender}

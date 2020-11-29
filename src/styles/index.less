@@ -1,10 +1,26 @@
+@import "dark";
+
+@white: #fff;
+@mask-bg-color: #000;
+@bg-color: #fff;
+@font-color: rgba(0, 0, 0, 0.85);
+@primary-color: #ff6358;
+
+@title-bar-font-color: @white;
+@title-bar-bg-color: @primary-color;
+@title-bar-border-color: #ff6358;
+
+@footer-font-color: @white;
+@footer-bg-color: @white;
+@footer-border-color: #f0f0f0;
+
 .fy-mask {
 	position: fixed;
 	top: 0;
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background-color: #000;
+	background-color: @mask-bg-color;
 	opacity: 0.5;
 }
 .fy-window {
@@ -16,8 +32,8 @@
 	padding: 0;
 	font-size: 14px;
 	line-height: 20 / 14;
-	color: #656565;
-	background-color: #fff;
+	color: @font-color;
+	background-color: @bg-color;
 	background-clip: padding-box;
 	border: 0 solid rgba(0, 0, 0, 0.08);
 	border-radius: 0;
@@ -36,14 +52,12 @@
 	flex-shrink: 0;
 	align-items: center;
 	padding: 16px;
-	color: #fff;
+	color: @title-bar-font-color;
 	white-space: nowrap;
 	user-select: none;
-	background-color: #ff6358;
+	background-color: @title-bar-bg-color;
 	background-clip: padding-box;
-	border-color: inherit;
-	border-style: solid;
-	border-width: 0 0 1px;
+	border-bottom: 1px solid @title-bar-border-color;
 	border-top-left-radius: 0;
 	border-top-right-radius: 0;
 	.window-title {
@@ -51,11 +65,16 @@
 		flex: 1 1;
 		flex-direction: row;
 		flex-wrap: nowrap;
+		padding-right: 4px;;
 		margin: 0;
 		overflow: hidden;
 		font-size: 16px;
 		line-height: 20 / 16;
-		text-overflow: ellipsis;
+		.text {
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
 	}
 	.window-actions {
 		display: flex;
@@ -76,7 +95,6 @@
 	flex: 1 1 auto;
 	padding: 16px 16px;
 	overflow: auto;
-	color: inherit;
 	background: none;
 	border-color: inherit;
 	border-width: 0;
@@ -89,30 +107,30 @@
 	align-content: center;
 	justify-content: flex-end;
 	padding: 10px 16px;
-	color: #fff;
-	border-top: 1px solid #f0f0f0;
+	color: @footer-font-color;
+	background: @footer-bg-color;
+	border-top: 1px solid @footer-border-color;
 	button + button {
 		margin-left: 10px;
 	}
 	.footer-button {
 		height: 32px;
 		padding: 4px 15px;
-		color: #333;
+		color: @font-color;
 		text-align: center;
-		background: #fff;
-		border: 1px solid #f0f0f0;
+		background: transparent;
+		border: 1px solid @footer-border-color;
 		border-radius: 2px;
-		box-shadow: 0 2px 0 rgba(0, 0, 0, 0.015);
 		transition: all 0.218s ease-in-out;
 
 		&:hover {
-			color: #ff6358;
-			border: 1px solid #ff6358;
+			color: @primary-color;
+			border: 1px solid @primary-color;
 		}
 
 		&.button-primary {
-			color: #fff;
-			background-color: #ff6358;
+			color: @white;
+			background-color: @primary-color;
 
 			&:hover::before {
 				opacity: 0.18;

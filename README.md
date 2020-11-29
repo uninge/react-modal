@@ -60,8 +60,9 @@ function onHandleCancel() {
 | 属性                            | 说明             | 类型                     | 默认值                   |
 | ------------------------------ | --------------- | ----------------------- | ----------------------- |
 | appendContainer                | 设置 Modal 的 z-index                                          | number         | - |
-| visible                        | 对话框是否可见 | boolean                                         | -              |
-| keyboard                       | 是否支持键盘事件(关闭、移动、缩放、最大最小化)                         | boolean        | - |
+| visible                        | 对话框是否可见                                                   | boolean | - |
+| theme                          | 皮肤(内置dark可选)                                               | string  | -  |  
+| keyboard                       | 是否支持键盘事件(关闭、移动、缩放、最大最小化)                      | boolean        | - |
 | mask                           | 是否展示遮罩                                                     | boolean       | true |
 | maskStyle                      | 遮罩样式                                                        | CSSProperties | - |
 | maskClassName                  | 遮罩class                                                     | string         | - |
