@@ -14,9 +14,9 @@ Powerful modal dialog component for React.
 
 ```
 $ npm i react-fantasy-modal
-```
-or
-```
+
+# or 
+
 $ yarn add react-fantasy-modal
 ```
 
