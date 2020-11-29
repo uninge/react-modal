@@ -1,6 +1,5 @@
 module.exports = {
 	root: true,
-	ignoreFiles: ['**/*.ts', '**/*.tsx'],
 	plugins: ['stylelint-order', 'stylelint-declaration-block-no-ignored-properties'],
 	extends: [
 		'stylelint-config-standard',

@@ -22,13 +22,13 @@ export default {
       format: 'umd',
       name: 'ReactModal',
 			sourcemap: true,
-			banner: '/* eslint-disable */',
 			globals,
 		},
   ],
   plugins: [
 		stylelint({
 			throwOnError: true,
+			include: ['**/*.less'],
 		}),
 		eslint({
 			useEslintrc: true,
