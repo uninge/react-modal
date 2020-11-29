@@ -17,8 +17,8 @@ Powerful modal dialog component for React.
 ## Usage
 ```typescript jsx
 import React from 'react';
-import Modal from 'react-modal';
-import 'react-modal/dist/index.css';
+import Modal from 'react-fantasy-modal';
+import 'react-fantasy-modal/dist/index.css';
 function onHandleMove(e) {
     console.log(e, '--->>> onHandleMove');
 }

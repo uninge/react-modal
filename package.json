@@ -1,7 +1,7 @@
 {
-  "name": "react-modal",
+  "name": "react-fantasy-modal",
   "version": "0.0.1",
-  "description": "Accessible modal dialog component for React.JS",
+  "description": "Accessible modal dialog component for React",
   "main": "dist/index.js",
   "author": "uninge <uninge@163.com>",
   "repository": {
