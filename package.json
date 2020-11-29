@@ -3,13 +3,13 @@
   "version": "0.0.1",
   "description": "Accessible modal dialog component for React",
   "main": "dist/index.js",
-  "author": "uninge <uninge@163.com>",
+  "author": "uninge <zentao.zendo@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/uninge/react-modal.git"
+    "url": "https://github.com/uninge/react-fantasy-modal.git"
   },
-  "homepage": "https://github.com/uninge/react-modal",
-  "bugs": "https://github.com/uninge/react-modal/issues",
+  "homepage": "https://github.com/uninge/react-fantasy-modal",
+  "bugs": "https://github.com/uninge/react-fantasy-modal/issues",
   "scripts": {
     "start": "rollup -c -w",
     "build": "npm run clean && npm run svgo && rollup -c",

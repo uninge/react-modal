@@ -12,7 +12,13 @@ Powerful modal dialog component for React.
 
 ## Installation
 
-尚在开发完善，暂时没发npm。
+```
+$ npm i react-fantasy-modal
+```
+or
+```
+$ yarn add react-fantasy-modal
+```
 
 ## Usage
 ```typescript jsx
@@ -20,10 +26,10 @@ import React from 'react';
 import Modal from 'react-fantasy-modal';
 import 'react-fantasy-modal/dist/index.css';
 function onHandleMove(e) {
-    console.log(e, '--->>> onHandleMove');
+  console.log(e, '--->>> onHandleMove');
 }
 function onHandleResize(e) {
-    console.log(e, '--->>> onHandleResize');
+  console.log(e, '--->>> onHandleResize');
 }
 
 
@@ -32,27 +38,27 @@ function onHandleOk() {
 }
 
 function onHandleCancel() {
-    console.log('onCancel callback')
+  console.log('onCancel callback')
 }
 
 
 <Modal
-    visible
-    keyboard
-    draggable
-    resizable
+  visible
+  keyboard
+  draggable
+  resizable
 
-    title="Hello Modal"
-    cancelText={"自定义取消文字"}
-    okText={"自定义确定文字"}
+  title="Hello Modal"
+  cancelText={"自定义取消文字"}
+  okText={"自定义确定文字"}
 
-    onMove={onHandleMove}
-    onResize={onHandleResize}
-    onCancel={onHandleCancel}
-    onOk={onHandleOk}
-    onStageChange={console.log}
+  onMove={onHandleMove}
+  onResize={onHandleResize}
+  onCancel={onHandleCancel}
+  onOk={onHandleOk}
+  onStageChange={console.log}
 >
-    Hello Modal!
+  Hello Modal!
 </Modal>
 ```
  
