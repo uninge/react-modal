@@ -1,16 +1,10 @@
 {
   "name": "react-fantasy-modal",
   "version": "0.0.1",
-  "description": "Accessible modal dialog component for React",
   "main": "dist/index.js",
   "author": "uninge <zentao.zendo@gmail.com>",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/uninge/react-fantasy-modal.git"
-  },
-  "homepage": "https://github.com/uninge/react-fantasy-modal",
-  "bugs": "https://github.com/uninge/react-fantasy-modal/issues",
-  "scripts": {
+	"description": "Accessible modal dialog component for React",
+	"scripts": {
     "start": "rollup -c -w",
     "build": "npm run clean && npm run svgo && rollup -c",
     "svgo": "svgo -f src/assets --config=./.svgo.yml",
@@ -91,12 +85,18 @@
       "prettier --check --end-of-line auto"
     ]
   },
-  "tags": [
-    "react",
-    "modal",
-    "dialog",
-    "window"
-  ],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/uninge/react-fantasy-modal.git"
+	},
+	"homepage": "https://github.com/uninge/react-fantasy-modal",
+	"bugs": "https://github.com/uninge/react-fantasy-modal/issues",
+	"tags": [
+		"react",
+		"modal",
+		"dialog",
+		"window"
+	],
   "keywords": [
     "react",
     "modal",
