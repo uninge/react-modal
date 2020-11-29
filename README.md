@@ -1,4 +1,4 @@
-# react-modal
+# react-fantasy-modal
 
 Powerful modal dialog component for React.
 
