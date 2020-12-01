@@ -1,5 +1,5 @@
-export const DEFAULT_WIDTH = 300;
-export const DEFAULT_HEIGHT = 300;
+export const DEFAULT_WIDTH = 520;
+export const DEFAULT_HEIGHT = 400;
 export const DEFAULT_MIN_WIDTH = 256;
 export const DEFAULT_MIN_HEIGHT = 200;
 export const DEFAULT_STEP = 5;
