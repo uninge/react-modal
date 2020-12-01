@@ -29,14 +29,14 @@ export default class FooterBar extends Component<IFooterBar> {
 		} = this.props;
 
 		return (
-			<div className={classNames('fy-window-footer', className)}>
+			<div className={classNames('rm-window-footer', className)}>
 				{showCancel && (
-					<button type="button" className="fy-button footer-button" onClick={onCancel}>
+					<button type="button" className="rm-button footer-button" onClick={onCancel}>
 						{cancelText}
 					</button>
 				)}
 				{showOk && (
-					<button type="button" className="fy-button footer-button button-primary" onClick={onOk}>
+					<button type="button" className="rm-button footer-button button-primary" onClick={onOk}>
 						{okText}
 					</button>
 				)}

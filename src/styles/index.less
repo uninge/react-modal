@@ -14,7 +14,7 @@
 @footer-bg-color: @white;
 @footer-border-color: #f0f0f0;
 
-.fy-mask {
+.rm-mask {
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -23,7 +23,7 @@
 	background-color: @mask-bg-color;
 	opacity: 0.5;
 }
-.fy-window {
+.rm-window {
 	position: absolute;
 	z-index: 10002;
 	box-sizing: border-box;
@@ -40,13 +40,13 @@
 	outline: 0;
 	box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.06);
 	&:focus,
-	&.fy-state-focused {
+	&.rm-state-focused {
 		box-shadow: 1px 1px 7px 1px rgba(0, 0, 0, 0.3);
 	}
 }
 
 // title bar
-.fy-window-title-bar {
+.rm-window-title-bar {
 	display: flex;
 	flex-direction: row;
 	flex-shrink: 0;
@@ -85,12 +85,12 @@
 	}
 }
 
-.fy-window-minimized .fy-window-title-bar {
+.rm-window-minimized .rm-window-title-bar {
 	border-width: 0;
 }
 
 // content
-.fy-window-content {
+.rm-window-content {
 	position: relative;
 	flex: 1 1 auto;
 	padding: 16px 16px;
@@ -102,7 +102,7 @@
 }
 
 // footer
-.fy-window-footer {
+.rm-window-footer {
 	display: flex;
 	align-content: center;
 	justify-content: flex-end;
@@ -140,7 +140,7 @@
 }
 
 // resize
-.fy-resize-handle {
+.rm-resize-handle {
 	position: absolute;
 	z-index: 200;
 	display: flex;
@@ -205,7 +205,7 @@
 }
 
 // button
-.fy-button {
+.rm-button {
 	position: relative;
 	box-sizing: border-box;
 	display: inline-flex;
@@ -249,12 +249,12 @@
 }
 
 // icon
-.fy-button-icon {
+.rm-button-icon {
 	width: calc(20 / 14 * 1em + 10px);
 	height: calc(20 / 14 * 1em + 10px);
 }
 
-.fy-icon {
+.rm-icon {
 	width: 1em;
 	height: 1em;
 	font-size: 14px;

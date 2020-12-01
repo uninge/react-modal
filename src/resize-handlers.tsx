@@ -49,7 +49,7 @@ export default function ResizeHandlers(props: Readonly<IResizeHandlers>) {
 				>
 					<div
 						style={{ display: 'block', touchAction: 'none' }}
-						className={`fy-resize-handle ${key}`}
+						className={`rm-resize-handle ${key}`}
 					/>
 				</Draggable>
 			))}

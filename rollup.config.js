@@ -36,6 +36,7 @@ export default {
 		}),
 		postcss({
 			extract: `index.css`,
+			plugins: [require('autoprefixer')],
 		}),
 		external(),
     svgr(),

@@ -1,4 +1,4 @@
-# react-fantasy-modal
+# react-powerful-modal
 
 Powerful modal dialog component for React.
 
@@ -13,18 +13,18 @@ Powerful modal dialog component for React.
 ## Installation
 
 ```
-$ npm i react-fantasy-modal
+$ npm i react-powerful-modal
 
 # or 
 
-$ yarn add react-fantasy-modal
+$ yarn add react-powerful-modal
 ```
 
 ## Usage
 ```typescript jsx
 import React from 'react';
-import Modal from 'react-fantasy-modal';
-import 'react-fantasy-modal/dist/index.css';
+import Modal from 'react-powerful-modal';
+import 'react-powerful-modal/dist/index.css';
 function onHandleMove(e) {
   console.log(e, '--->>> onHandleMove');
 }

@@ -545,7 +545,7 @@ export default class Modal extends Component<IModalProps, IModalState> {
 				{mask && (
 					<div
 						style={{ ...maskStyle, zIndex }}
-						className={classNames('fy-mask', maskClassName)}
+						className={classNames('rm-mask', maskClassName)}
 						onClick={this.onHandleMaskClick}
 					/>
 				)}
@@ -558,12 +558,12 @@ export default class Modal extends Component<IModalProps, IModalState> {
 						zIndex: zIndex + 1,
 						...style,
 					}}
-					className={classNames('fy-window', className, theme, {
-						'fy-window-minimized': this.state.stage === 'MINIMIZED',
+					className={classNames('rm-window', className, theme, {
+						'rm-window-minimized': this.state.stage === 'MINIMIZED',
 					})}
 					tabIndex={-1}
-					onFocus={(e) => e.target.classList.add('fy-state-focused')}
-					onBlur={(e) => e.target.classList.remove('fy-state-focused')}
+					onFocus={(e) => e.target.classList.add('rm-state-focused')}
+					onBlur={(e) => e.target.classList.remove('rm-state-focused')}
 					onKeyDown={this.onHandleKeyDown}
 				>
 					{/* @ts-ignore */}
@@ -589,7 +589,7 @@ export default class Modal extends Component<IModalProps, IModalState> {
 						</TitleBar>
 
 						{this.windowStage !== windowStage.MINIMIZED ? (
-							<div className={classNames('fy-window-content', contentClassName)}>{children}</div>
+							<div className={classNames('rm-window-content', contentClassName)}>{children}</div>
 						) : null}
 
 						{this.windowStage !== windowStage.MINIMIZED && (

@@ -1,16 +1,18 @@
 {
-  "name": "react-fantasy-modal",
+  "name": "react-powerful-modal",
   "version": "0.0.1",
   "main": "dist/index.js",
   "author": "uninge <zentao.zendo@gmail.com>",
-	"description": "Accessible modal dialog component for React",
-	"scripts": {
+  "description": "Accessible modal dialog component for React",
+  "scripts": {
     "start": "rollup -c -w",
-    "build": "npm run clean && npm run svgo && rollup -c",
+    "build": "rollup -c",
     "svgo": "svgo -f src/assets --config=./.svgo.yml",
-    "clean": "rimraf ./dist",
     "lint": "eslint --fix --ext .js src",
-    "lint-staged": "lint-staged",
+		"clean": "rimraf ./dist",
+		"prestart": "npm run clean",
+		"prebuild": "npm run clean && npm run svgo",
+		"lint-staged": "lint-staged",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
@@ -33,6 +35,7 @@
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "@typescript-eslint/parser": "^4.8.1",
+    "autoprefixer": "^9.8.6",
     "babel-plugin-external-helpers": "^6.22.0",
     "core-js": "^3.7.0",
     "eslint": "^7.14.0",
@@ -85,18 +88,18 @@
       "prettier --check --end-of-line auto"
     ]
   },
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/uninge/react-fantasy-modal.git"
-	},
-	"homepage": "https://github.com/uninge/react-fantasy-modal",
-	"bugs": "https://github.com/uninge/react-fantasy-modal/issues",
-	"tags": [
-		"react",
-		"modal",
-		"dialog",
-		"window"
-	],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/uninge/react-powerful-modal.git"
+  },
+  "homepage": "https://github.com/uninge/react-powerful-modal",
+  "bugs": "https://github.com/uninge/react-powerful-modal/issues",
+  "tags": [
+    "react",
+    "modal",
+    "dialog",
+    "window"
+  ],
   "keywords": [
     "react",
     "modal",
@@ -114,5 +117,10 @@
     "package-lock.json",
     "LICENSE"
   ],
+	"browserslist": [
+		"> 1%",
+		"last 2 versions",
+		"not ie <= 9"
+	],
   "license": "MIT"
 }
