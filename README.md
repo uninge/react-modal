@@ -90,8 +90,8 @@ function onHandleCancel() {
 | height                         | 对话框高度(受控属性，自动缩放高度将无效，自行根据onResize回调控制)  | number         | - |
 | top                            | 对话框距离顶部位置(受控属性，垂直拖动将无效，自行根据onMove回调控制) | number          | - |
 | left                           | 对话框距离左侧位置(受控属性，水平拖动将无效，自行根据onMove回调控制) | number          | - |
-| initialWidth                   | 对话框初始宽度                                                  | number          | - |
-| initialHeight                  | 对话框初始高度                                                  | number          | - |
+| initialWidth                   | 对话框初始宽度                                                  | number          | 520 |
+| initialHeight                  | 对话框初始高度                                                  | number          | 400 |
 | initialTop                     | 对话框初始距离顶部位置                                            | number          | - |
 | initialLeft                    | 对话框初始距离左侧位置                                            | number          | - |
 | minWidth                       | 对话框最小宽度                                                  | number          | 256 |
