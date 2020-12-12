@@ -8,17 +8,13 @@
     "start": "rollup -c -w",
     "build": "rollup -c",
     "svgo": "svgo -f src/assets --config=./.svgo.yml",
-    "lint": "eslint --fix --ext .js src",
     "clean": "rimraf ./dist",
     "prestart": "npm run clean",
-    "prebuild": "npm run clean && npm run svgo",
-    "lint-staged": "lint-staged",
+		"prebuild": "npm run clean && npm run svgo",
+		"prepublish": "npm run build",
+		"lint": "eslint --fix --ext .js src",
+		"lint-staged": "lint-staged",
     "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "dependencies": {
-    "prop-types": "^15.7.2",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1"
   },
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.12.1",
