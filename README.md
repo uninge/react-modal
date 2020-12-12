@@ -68,7 +68,7 @@ function onHandleCancel() {
 | appendContainer                | 设置 Modal 的 z-index                                          | number         | - |
 | visible                        | 对话框是否可见                                                   | boolean | - |
 | theme                          | 皮肤(内置dark可选)                                               | string  | -  |  
-| keyboard                       | 是否支持键盘事件(关闭、移动、缩放、最大最小化)                      | boolean        | - |
+| keyboard                       | 是否支持键盘事件(关闭(ESC)、移动(↑→↓←)、缩放(CTRL + ↑→↓←)、最大最小化(ALT + ↑↓))   | boolean        | - |
 | mask                           | 是否展示遮罩                                                     | boolean       | true |
 | maskStyle                      | 遮罩样式                                                        | CSSProperties | - |
 | maskClassName                  | 遮罩class                                                     | string         | - |
@@ -85,11 +85,11 @@ function onHandleCancel() {
 | onResize                       | 缩放对话框的回调                                                 | function(e)    | - |
 | onStageChange                  | 对话框状态改变的回调                                              | function(e)    | - |
 | style                          | 可用于设置对话框样式，调位置等                                      | CSSProperties  | - |
-| className                      | 对话框容器的类名	                                            | string         | - |
-| width                          | 对话框宽度(受控属性，自动缩放宽度将无效，自行根据onResize回调控制)                                    | number         | - |
-| height                         | 对话框高度(受控属性，自动缩放高度将无效，自行根据onResize回调控制)                                    | number         | - |
-| top                            | 对话框距离顶部位置(受控属性，垂直拖动将无效，自行根据onMove回调控制)                          | number          | - |
-| left                           | 对话框距离左侧位置(受控属性，水平拖动将无效，自行根据onMove回调控制)                          | number          | - |
+| className                      | 对话框容器的类名	                                               | string         | - |
+| width                          | 对话框宽度(受控属性，自动缩放宽度将无效，自行根据onResize回调控制)  | number         | - |
+| height                         | 对话框高度(受控属性，自动缩放高度将无效，自行根据onResize回调控制)  | number         | - |
+| top                            | 对话框距离顶部位置(受控属性，垂直拖动将无效，自行根据onMove回调控制) | number          | - |
+| left                           | 对话框距离左侧位置(受控属性，水平拖动将无效，自行根据onMove回调控制) | number          | - |
 | initialWidth                   | 对话框初始宽度                                                  | number          | - |
 | initialHeight                  | 对话框初始高度                                                  | number          | - |
 | initialTop                     | 对话框初始距离顶部位置                                            | number          | - |
