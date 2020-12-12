@@ -21,6 +21,9 @@ import {
 	IDraggableCoreTouchDragEvent as TouchDragEvent,
 } from './utils/draggable-core';
 
+export type THEME = '' | 'dark';
+export type WINDOW_STAGE = 'DEFAULT' | 'FULLSCREEN' | 'MINIMIZED';
+
 export interface IStageChangeEvent {
 	nativeEvent: MouseEvent;
 	state: string;
@@ -42,14 +45,15 @@ export interface IModalEvent {
 export interface IModalProps {
 	appendContainer?: HTMLElement;
 	visible?: boolean;
-	theme?: string;
+	theme?: THEME;
 	keyboard?: boolean;
 	mask?: boolean;
 	maskStyle?: { [key: string]: string | number };
 	maskClassName?: string;
 	maskClosable?: boolean;
 	shouldUpdateOnDrag?: boolean;
-	stage?: string;
+	stage?: WINDOW_STAGE;
+	initialStage?: WINDOW_STAGE;
 	onCancel?: () => void;
 	onOk?: () => void;
 
@@ -117,7 +121,7 @@ export default class Modal extends Component<IModalProps, IModalState> {
 	constructor(props: Readonly<IModalProps>) {
 		super(props);
 		this.state = {
-			stage: props.stage || windowStage.DEFAULT,
+			stage: props.stage || props.initialStage || windowStage.DEFAULT,
 			width: this.getInitialWidth(),
 			height: this.getInitialHeight(),
 			top: this.getInitialTop(),
@@ -559,7 +563,7 @@ export default class Modal extends Component<IModalProps, IModalState> {
 						...style,
 					}}
 					className={classNames('rm-window', className, theme, {
-						'rm-window-minimized': this.state.stage === 'MINIMIZED',
+						'rm-window-minimized': this.windowStage === 'MINIMIZED',
 					})}
 					tabIndex={-1}
 					onFocus={(e) => e.target.classList.add('rm-state-focused')}

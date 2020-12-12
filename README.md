@@ -74,7 +74,8 @@ function onHandleCancel() {
 | maskClassName                  | 遮罩class                                                     | string         | - |
 | maskClosable                   | 点击蒙层是否允许关闭	                                            | boolean        | true |
 | shouldUpdateOnDrag             | 拖拽过程是否允许视图元素更新                                       | boolean        | false |
-| stage                          | 对话框展示状态，默认(DEFAULT)、最大化(FULLSCREEN)、最小化(MINIMIZED) | string         | DEFAULT |
+| stage                          | 对话框展示状态，默认(DEFAULT)、最大化(FULLSCREEN)、最小化(MINIMIZED)。受控属性，自动切换将无效，自行根据onStageChange回调控制 | string         | DEFAULT |
+| initialStage                   | 对话框初始展示状态。值同stage但优先级低于stage | string         | DEFAULT |
 | onCancel                       | 点击遮罩层或右上角叉或取消按钮的回调	                                | function(e)    | - |
 | onOk                           | 点击确定回调	                                                | function(e)    | - |
 | draggable                      | 对话框是否可拖拽(只支持标题部分拖拽)                                 | boolean       | true |
@@ -85,10 +86,10 @@ function onHandleCancel() {
 | onStageChange                  | 对话框状态改变的回调                                              | function(e)    | - |
 | style                          | 可用于设置对话框样式，调位置等                                      | CSSProperties  | - |
 | className                      | 对话框容器的类名	                                            | string         | - |
-| width                          | 对话框宽度(受控属性，缩放将无效)                                    | number         | - |
-| height                         | 对话框高度(受控属性，缩放将无效)                                    | number         | - |
-| top                            | 对话框距离顶部位置(受控属性，垂直拖动将无效)                          | number          | - |
-| left                           | 对话框距离左侧位置(受控属性，水平拖动将无效)                          | number          | - |
+| width                          | 对话框宽度(受控属性，自动缩放宽度将无效，自行根据onResize回调控制)                                    | number         | - |
+| height                         | 对话框高度(受控属性，自动缩放高度将无效，自行根据onResize回调控制)                                    | number         | - |
+| top                            | 对话框距离顶部位置(受控属性，垂直拖动将无效，自行根据onMove回调控制)                          | number          | - |
+| left                           | 对话框距离左侧位置(受控属性，水平拖动将无效，自行根据onMove回调控制)                          | number          | - |
 | initialWidth                   | 对话框初始宽度                                                  | number          | - |
 | initialHeight                  | 对话框初始高度                                                  | number          | - |
 | initialTop                     | 对话框初始距离顶部位置                                            | number          | - |
