@@ -1,6 +1,6 @@
 {
   "name": "react-better-modal",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "dist/index.js",
   "author": "uninge <uninge.sun@gmail.com>",
   "description": "Accessible modal dialog component for React",
@@ -10,10 +10,10 @@
     "svgo": "svgo -f src/assets --config=./.svgo.yml",
     "clean": "rimraf ./dist",
     "prestart": "npm run clean",
-		"prebuild": "npm run clean && npm run svgo",
-		"prepublish": "npm run build",
-		"lint": "eslint --fix --ext .js src",
-		"lint-staged": "lint-staged",
+    "prebuild": "npm run clean && npm run svgo",
+    "prepublish": "npm run build",
+    "lint": "eslint --fix --ext .js src",
+    "lint-staged": "lint-staged",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
