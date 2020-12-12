@@ -2,7 +2,7 @@
   "name": "react-powerful-modal",
   "version": "0.0.1",
   "main": "dist/index.js",
-  "author": "uninge <zentao.zendo@gmail.com>",
+  "author": "uninge <uninge.sun@gmail.com>",
   "description": "Accessible modal dialog component for React",
   "scripts": {
     "start": "rollup -c -w",
