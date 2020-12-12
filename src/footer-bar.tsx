@@ -9,6 +9,7 @@ export interface IFooterBar {
 	okText?: string;
 	onCancel?: (event: any) => void,
 	onOk?: (event: any) => void;
+	footer?: React.ReactElement;
 }
 
 export default class FooterBar extends Component<IFooterBar> {
@@ -26,19 +27,24 @@ export default class FooterBar extends Component<IFooterBar> {
 			okText = '确定',
 			onCancel,
 			onOk,
+			footer,
 		} = this.props;
 
 		return (
 			<div className={classNames('rm-window-footer', className)}>
-				{showCancel && (
-					<button type="button" className="rm-button footer-button" onClick={onCancel}>
-						{cancelText}
-					</button>
-				)}
-				{showOk && (
-					<button type="button" className="rm-button footer-button button-primary" onClick={onOk}>
-						{okText}
-					</button>
+				{footer || (
+					<>
+						{showCancel && (
+							<button type="button" className="rm-button footer-button" onClick={onCancel}>
+								{cancelText}
+							</button>
+						)}
+						{showOk && (
+							<button type="button" className="rm-button footer-button button-primary" onClick={onOk}>
+								{okText}
+							</button>
+						)}
+					</>
 				)}
 			</div>
 		);

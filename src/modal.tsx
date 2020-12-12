@@ -98,6 +98,7 @@ export interface IModalProps {
 	showOk?: boolean;
 	cancelText?: string;
 	okText?: string;
+	footer?: React.ReactElement;
 }
 
 export interface IModalState {
@@ -537,10 +538,11 @@ export default class Modal extends Component<IModalProps, IModalState> {
 			children,
 
 			footerClassName,
-			showCancel,
-			showOk,
+			showCancel = true,
+			showOk = true,
 			cancelText,
 			okText,
+			footer,
 		} = this.props;
 		const { isDragging } = this.state;
 
@@ -595,8 +597,7 @@ export default class Modal extends Component<IModalProps, IModalState> {
 						{this.windowStage !== windowStage.MINIMIZED ? (
 							<div className={classNames('rm-window-content', contentClassName)}>{children}</div>
 						) : null}
-
-						{this.windowStage !== windowStage.MINIMIZED && (
+						{(this.windowStage !== windowStage.MINIMIZED && (showCancel || showOk) && footer !== null) && (
 							<FooterBar
 								className={footerClassName}
 								showCancel={showCancel}
@@ -605,6 +606,7 @@ export default class Modal extends Component<IModalProps, IModalState> {
 								okText={okText}
 								onCancel={this.handleCloseWindow}
 								onOk={this.onHandleOk}
+								footer={footer}
 							/>
 						)}
 

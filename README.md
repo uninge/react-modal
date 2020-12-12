@@ -109,6 +109,7 @@ function onHandleCancel() {
 | showOk                         | 确定按钮是否可见                                                | boolean          | true |
 | cancelText                     | 取消按钮文字                                                   | ReactNode        | 取消 |
 | okText                         | 确认按钮文字                                                   | ReactNode        | 确定 |
+| footer                         | 底部内容，当不需要默认底部按钮时，可以设为 footer={null}          | ReactNode        | - |
 
 ## Demos
 
