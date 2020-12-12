@@ -1,5 +1,5 @@
 {
-  "name": "react-powerful-modal",
+  "name": "react-better-modal",
   "version": "0.0.1",
   "main": "dist/index.js",
   "author": "uninge <uninge.sun@gmail.com>",
@@ -9,10 +9,10 @@
     "build": "rollup -c",
     "svgo": "svgo -f src/assets --config=./.svgo.yml",
     "lint": "eslint --fix --ext .js src",
-		"clean": "rimraf ./dist",
-		"prestart": "npm run clean",
-		"prebuild": "npm run clean && npm run svgo",
-		"lint-staged": "lint-staged",
+    "clean": "rimraf ./dist",
+    "prestart": "npm run clean",
+    "prebuild": "npm run clean && npm run svgo",
+    "lint-staged": "lint-staged",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
@@ -90,10 +90,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/uninge/react-powerful-modal.git"
+    "url": "https://github.com/uninge/react-modal.git"
   },
-  "homepage": "https://github.com/uninge/react-powerful-modal",
-  "bugs": "https://github.com/uninge/react-powerful-modal/issues",
+  "homepage": "https://github.com/uninge/react-modal",
+  "bugs": "https://github.com/uninge/react-modal/issues",
   "tags": [
     "react",
     "modal",
@@ -117,10 +117,10 @@
     "package-lock.json",
     "LICENSE"
   ],
-	"browserslist": [
-		"> 1%",
-		"last 2 versions",
-		"not ie <= 9"
-	],
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 9"
+  ],
   "license": "MIT"
 }
