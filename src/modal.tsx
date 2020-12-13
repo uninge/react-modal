@@ -120,6 +120,52 @@ export default class Modal extends Component<IModalProps, IModalState> {
 		differenceTop: number;
 		heightBeforeAction: number;
 	};
+	static getDerivedStateFromProps(nextProps: IModalProps) {
+		// 弹窗关闭的时候重置为初始数据
+		if (nextProps.visible === false) {
+			let width = DEFAULT_WIDTH;
+			if (nextProps.width !== undefined) {
+				width = nextProps.width;
+			} else if (nextProps.initialWidth !== undefined) {
+				width = nextProps.initialWidth;
+			}
+
+			let height = DEFAULT_HEIGHT;
+			if (nextProps.height !== undefined) {
+				height = nextProps.height;
+			} else if (nextProps.initialHeight !== undefined) {
+				height = nextProps.initialHeight;
+			}
+
+			let top: number;
+			if (nextProps.top !== undefined) {
+				top = nextProps.top;
+			} else if (nextProps.initialTop !== undefined) {
+				top = nextProps.initialTop;
+			} else {
+				top = window.innerHeight / 2 - height / 2;
+			}
+
+			let left: number;
+			if (nextProps.left !== undefined) {
+				left = nextProps.left;
+			} else if (nextProps.initialLeft !== undefined) {
+				left = nextProps.initialLeft;
+			} else {
+				left = window.innerWidth / 2 - width / 2;
+			}
+
+			return {
+				stage: windowStage.DEFAULT,
+				width,
+				height,
+				top,
+				left,
+				isDragging: false,
+			};
+		}
+		return null;
+	}
 	constructor(props: Readonly<IModalProps>) {
 		super(props);
 		this.state = {
