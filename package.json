@@ -10,9 +10,9 @@
     "svgo": "svgo -f src/assets --config=./.svgo.yml",
     "clean": "rimraf ./dist",
     "prestart": "npm run clean",
-    "prebuild": "npm run clean && npm run svgo",
+    "prebuild": "npm run lint && npm run clean && npm run svgo",
     "prepublish": "npm run build",
-    "lint": "eslint --fix --ext .js src",
+    "lint": "eslint --fix --ext .ts,.tsx src",
     "lint-staged": "lint-staged",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
