@@ -2,11 +2,13 @@
 
 Powerful modal dialog component for React.
 
+一个功能强大的React弹窗组件。支持缩放、拖拽、最大化最小化、键盘事件移动弹窗位置(`↑→↓←`)、键盘事件缩放(`CTRL + ↑→↓←`)、键盘事件最大化最小化(`ALT + ↑↓`)。
+
 ## Table of Contents
 
 * [Installation](#installation)
 * [Usage](#usage)
-* [API documentation](#api-documentation)
+* [API Documentation](#api-documentation)
 * [Demos](#demos)
 * [TODOS](#todos)
 
@@ -66,9 +68,10 @@ function onHandleCancel() {
 | 属性                            | 说明             | 类型                     | 默认值                   |
 | ------------------------------ | --------------- | ----------------------- | ----------------------- |
 | appendContainer                | 设置 Modal 的 z-index                                          | number         | - |
-| visible                        | 对话框是否可见                                                   | boolean | - |
+| visible                        | 对话框是否可见                                                   | boolean | false |
 | theme                          | 皮肤(内置dark可选)                                               | string  | -  |  
-| keyboard                       | 是否支持键盘事件(关闭(ESC)、移动(↑→↓←)、缩放(CTRL + ↑→↓←)、最大最小化(ALT + ↑↓))   | boolean        | - |
+| keyboard                       | 是否支持键盘事件(关闭(ESC)、移动(↑→↓←)、缩放(CTRL + ↑→↓←)、最大最小化(ALT + ↑↓))   | boolean        | true |
+| useEsc                         | 是否支持键盘esc关闭，优先级低于keyboard参数                       | boolean        | true |
 | mask                           | 是否展示遮罩                                                     | boolean       | true |
 | maskStyle                      | 遮罩样式                                                        | CSSProperties | - |
 | maskClassName                  | 遮罩class                                                     | string         | - |
@@ -113,9 +116,21 @@ function onHandleCancel() {
 
 ## Demos
 
-@todo
+There are several demos hosted on CodeSandbox which demonstrate various features of react-better-modal.
+
+1. [基础用法](https://codesandbox.io/s/react-better-modal-1-wv4e3)
+2. [非受控初始宽高](https://codesandbox.io/s/react-better-modal-2-e56iw)
+3. [受控宽高](https://codesandbox.io/s/react-better-modal-3-le67v)
+4. [非受控初始位置](https://codesandbox.io/s/react-better-modal-4-w9cmi)
+5. [受控位置](https://codesandbox.io/s/react-better-modal-5-h5r3k)
+6. [非弹窗状态](https://codesandbox.io/s/react-better-modal-6-0gbk4)
+7. [受控弹窗状态](https://codesandbox.io/s/react-better-modal-7-ik843)
+8. [键盘事件](https://codesandbox.io/s/react-better-modal-8-jutth)
+9. [内置主题](https://codesandbox.io/s/react-better-modal-9-fyno4)
+10. [未覆盖部分请参考API Documentation](#api-documentation)
 
 ## TODOS
 
-* more themes
+* animation
 * Testing
+* more themes
