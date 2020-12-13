@@ -1,4 +1,6 @@
 # react-better-modal
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Funinge%2Freact-modal.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Funinge%2Freact-modal?ref=badge_shield)
+
 
 Powerful modal dialog component for React.
 
@@ -134,3 +136,7 @@ There are several demos hosted on CodeSandbox which demonstrate various features
 * animation
 * Testing
 * more themes
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Funinge%2Freact-modal.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Funinge%2Freact-modal?ref=badge_large)
