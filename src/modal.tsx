@@ -47,6 +47,7 @@ export interface IModalProps {
 	visible?: boolean;
 	theme?: THEME;
 	keyboard?: boolean;
+	useEsc?: boolean;
 	mask?: boolean;
 	maskStyle?: { [key: string]: string | number };
 	maskClassName?: string;
@@ -141,9 +142,19 @@ export default class Modal extends Component<IModalProps, IModalState> {
 	}
 
 	onHandleKeyDown = (event: React.KeyboardEvent) => {
-		const { keyboard = true, resizable = true } = this.props;
-		const minWidth = this.props.minWidth || DEFAULT_MIN_WIDTH;
-		const minHeight = this.props.minHeight || DEFAULT_MIN_HEIGHT;
+		const {
+			keyboard = true,
+			useEsc = true,
+			resizable = true,
+			minWidth: propsMinWidth,
+			minHeight: propsMinHeight,
+			onResize,
+			onStageChange,
+			onCancel,
+			onMove,
+		} = this.props;
+		const minWidth = propsMinWidth || DEFAULT_MIN_WIDTH;
+		const minHeight = propsMinHeight || DEFAULT_MIN_HEIGHT;
 
 		if (!keyboard) {
 			return;
@@ -179,8 +190,8 @@ export default class Modal extends Component<IModalProps, IModalState> {
 				default:
 					return;
 			}
-			if (this.props.onResize) {
-				this.dispatchMoveEvent(this.props.onResize, event, false, false);
+			if (onResize) {
+				this.dispatchMoveEvent(onResize, event, false, false);
 			}
 			return;
 		}
@@ -192,19 +203,19 @@ export default class Modal extends Component<IModalProps, IModalState> {
 					// eslint-disable-next-line max-depth
 					if (this.windowStage === windowStage.MINIMIZED) {
 						this.handleRestore(event);
-						dispatchEvent(this.props.onStageChange, event, this, { state: windowStage.DEFAULT });
+						dispatchEvent(onStageChange, event, this, { state: windowStage.DEFAULT });
 					} else if (this.windowStage === windowStage.DEFAULT) {
 						this.handleFullscreen(event);
-						dispatchEvent(this.props.onStageChange, event, this, { state: windowStage.FULLSCREEN });
+						dispatchEvent(onStageChange, event, this, { state: windowStage.FULLSCREEN });
 					}
 					break;
 				case keys.down:
 					if (this.windowStage === windowStage.FULLSCREEN) {
 						this.handleRestore(event);
-						dispatchEvent(this.props.onStageChange, event, this, { state: windowStage.DEFAULT });
+						dispatchEvent(onStageChange, event, this, { state: windowStage.DEFAULT });
 					} else if (this.windowStage === windowStage.DEFAULT) {
 						this.handleMinimize(event);
-						dispatchEvent(this.props.onStageChange, event, this, { state: windowStage.MINIMIZED });
+						dispatchEvent(onStageChange, event, this, { state: windowStage.MINIMIZED });
 					}
 					break;
 				default:
@@ -216,7 +227,7 @@ export default class Modal extends Component<IModalProps, IModalState> {
 		if (!event.ctrlKey) {
 			switch (event.keyCode) {
 				case keys.esc:
-					if (this.props.onCancel) {
+					if (useEsc && onCancel) {
 						event.preventDefault();
 						this.handleCloseWindow(event);
 					}
@@ -238,8 +249,8 @@ export default class Modal extends Component<IModalProps, IModalState> {
 			}
 		}
 
-		if (this.props.onMove) {
-			this.dispatchMoveEvent(this.props.onMove, event, false, false);
+		if (onMove) {
+			this.dispatchMoveEvent(onMove, event, false, false);
 		}
 	};
 
