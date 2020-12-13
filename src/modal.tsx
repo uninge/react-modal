@@ -378,7 +378,7 @@ export default class Modal extends Component<IModalProps, IModalState> {
 	};
 
 	onHandleMaskClick = (event: React.MouseEvent) => {
-		const { maskClosable = true } = this.props;
+		const { maskClosable } = this.props;
 		if (maskClosable) {
 			this.handleCloseWindow(event);
 		}

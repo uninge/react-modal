@@ -75,7 +75,7 @@ function onHandleCancel() {
 | mask                           | 是否展示遮罩                                                     | boolean       | true |
 | maskStyle                      | 遮罩样式                                                        | CSSProperties | - |
 | maskClassName                  | 遮罩class                                                     | string         | - |
-| maskClosable                   | 点击蒙层是否允许关闭	                                            | boolean        | true |
+| maskClosable                   | 点击蒙层是否允许关闭	                                            | boolean        | false |
 | shouldUpdateOnDrag             | 拖拽过程是否允许视图元素更新                                       | boolean        | false |
 | stage                          | 对话框展示状态，默认(DEFAULT)、最大化(FULLSCREEN)、最小化(MINIMIZED)。受控属性，自动切换将无效，自行根据onStageChange回调控制 | string         | DEFAULT |
 | initialStage                   | 对话框初始展示状态。值同stage但优先级低于stage | string         | DEFAULT |
