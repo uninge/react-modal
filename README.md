@@ -123,7 +123,7 @@ There are several demos hosted on CodeSandbox which demonstrate various features
 3. [受控宽高](https://codesandbox.io/s/react-better-modal-3-le67v)
 4. [非受控初始位置](https://codesandbox.io/s/react-better-modal-4-w9cmi)
 5. [受控位置](https://codesandbox.io/s/react-better-modal-5-h5r3k)
-6. [非弹窗状态](https://codesandbox.io/s/react-better-modal-6-0gbk4)
+6. [非受控弹窗状态](https://codesandbox.io/s/react-better-modal-6-0gbk4)
 7. [受控弹窗状态](https://codesandbox.io/s/react-better-modal-7-ik843)
 8. [键盘事件](https://codesandbox.io/s/react-better-modal-8-jutth)
 9. [内置主题](https://codesandbox.io/s/react-better-modal-9-fyno4)
