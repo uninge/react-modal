@@ -1,4 +1,6 @@
 # react-better-modal
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Funinge%2Freact-modal.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Funinge%2Freact-modal?ref=badge_shield)
+
 
 Powerful modal dialog component for React.
 
