@@ -1,4 +1,18 @@
 # react-better-modal
+
+[![Npm Bundle Size](https://img.shields.io/bundlephobia/min/react-better-modal)](https://www.npmjs.com/package/react-better-modal)
+[![Npm Bundle Size](https://img.shields.io/bundlephobia/minzip/react-better-modal)](https://www.npmjs.com/package/react-better-modal)
+[![Npm Downloads](https://img.shields.io/npm/dy/react-better-modal)](https://www.npmjs.com/package/react-better-modal)
+[![Npm License](https://img.shields.io/npm/l/react-better-modal)](https://github.com/uninge/react-modal.git)
+
+[![GitHub Language Count](https://img.shields.io/github/languages/count/uninge/react-modal)](https://github.com/uninge/react-modal.git)
+[![GitHub Top Language](https://img.shields.io/github/languages/top/uninge/react-modal)](https://github.com/uninge/react-modal.git)
+[![GitHub Code Size](https://img.shields.io/github/languages/code-size/uninge/react-modal)](https://github.com/uninge/react-modal.git)
+[![GitHub Repo Size](https://img.shields.io/github/repo-size/uninge/react-modal)](https://github.com/uninge/react-modal.git)
+[![GitHub tag](https://img.shields.io/github/v/tag/uninge/react-modal)](https://github.com/uninge/react-modal.git)
+[![GitHub Branch Checks State](https://img.shields.io/github/checks-status/uninge/react-modal/master?style=plastic)](https://github.com/uninge/react-modal.git)
+[![GitHub Issues](https://img.shields.io/github/issues/uninge/react-modal)](https://github.com/uninge/react-modal.git)
+[![GitHub Commit Activity](https://img.shields.io/github/commit-activity/m/uninge/react-modal)](https://github.com/uninge/react-modal.git)
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Funinge%2Freact-modal.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Funinge%2Freact-modal?ref=badge_shield)
 
 

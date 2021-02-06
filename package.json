@@ -14,7 +14,8 @@
     "prepublish": "npm run build",
     "lint": "eslint --fix --ext .ts,.tsx src",
     "lint-staged": "lint-staged",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "npm-check": "npm-check -u"
   },
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.12.1",
@@ -24,19 +25,19 @@
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
     "@rollup/plugin-babel": "^5.2.1",
-    "@rollup/plugin-commonjs": "^16.0.0",
-    "@rollup/plugin-node-resolve": "^10.0.0",
-    "@rollup/plugin-url": "^5.0.1",
+    "@rollup/plugin-commonjs": "^17.1.0",
+    "@rollup/plugin-node-resolve": "^11.1.1",
+    "@rollup/plugin-url": "^6.0.0",
     "@svgr/rollup": "^5.5.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "@typescript-eslint/parser": "^4.8.1",
-    "autoprefixer": "^9.8.6",
+    "autoprefixer": "^10.2.4",
     "babel-plugin-external-helpers": "^6.22.0",
     "core-js": "^3.7.0",
     "eslint": "^7.14.0",
     "eslint-config-airbnb": "^18.2.1",
-    "eslint-config-prettier": "^6.15.0",
+    "eslint-config-prettier": "^7.2.0",
     "eslint-friendly-formatter": "^4.0.1",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jsx-a11y": "^6.4.1",
@@ -44,18 +45,18 @@
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-react-hooks": "^4.2.0",
     "husky": "^4.3.0",
-    "less": "^3.12.2",
+    "less": "^4.1.1",
     "lint-staged": "^10.5.1",
-    "npm": "^6.14.9",
+    "postcss": "^8.2.4",
     "prettier": "^2.2.0",
-    "react": "^16.13.0",
-    "react-dom": "^16.13.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
     "rimraf": "^3.0.2",
     "rollup": "^2.33.3",
-    "rollup-plugin-dts": "^1.4.14",
+    "rollup-plugin-dts": "^2.0.1",
     "rollup-plugin-eslint": "^7.0.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
-    "rollup-plugin-postcss": "^3.1.8",
+    "rollup-plugin-postcss": "^4.0.0",
     "rollup-plugin-stylelint": "^1.0.0",
     "rollup-plugin-typescript2": "^0.29.0",
     "stylelint": "^13.8.0",
@@ -85,12 +86,6 @@
       "prettier --check --end-of-line auto"
     ]
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/uninge/react-modal.git"
-  },
-  "homepage": "https://github.com/uninge/react-modal",
-  "bugs": "https://github.com/uninge/react-modal/issues",
   "tags": [
     "react",
     "modal",
@@ -99,12 +94,12 @@
   ],
   "keywords": [
     "react",
-    "modal",
-    "dialog",
-    "window",
     "reat-maodl",
     "reat-dialog",
     "reat-window",
+    "modal",
+    "dialog",
+    "window",
     "react-component"
   ],
   "files": [
@@ -119,5 +114,8 @@
     "last 2 versions",
     "not ie <= 9"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "npm-check": "^5.9.2"
+  }
 }
