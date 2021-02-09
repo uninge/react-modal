@@ -72,11 +72,17 @@
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
   },
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/uninge/react-modal.git"
+	},
+	"homepage": "https://github.com/uninge/react-modal",
+	"bugs": "https://github.com/uninge/react-modal/issues",
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-push": "echo \"\n九尺高台，起于垒土。感谢有你！\n\""
+      "pre-push": "echo \"\n半壁翻云刃，满江酩酊红。千古光阴一霎时，且醉浪涛中！\n\""
     }
   },
   "lint-staged": {
