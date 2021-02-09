@@ -17,6 +17,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "npm-check": "npm-check -u"
   },
+  "dependencies": {},
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.12.1",
     "@babel/preset-env": "^7.12.1",
@@ -72,12 +73,12 @@
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
   },
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/uninge/react-modal.git"
-	},
-	"homepage": "https://github.com/uninge/react-modal",
-	"bugs": "https://github.com/uninge/react-modal/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/uninge/react-modal.git"
+  },
+  "homepage": "https://github.com/uninge/react-modal",
+  "bugs": "https://github.com/uninge/react-modal/issues",
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
@@ -120,8 +121,8 @@
     "last 2 versions",
     "not ie <= 9"
   ],
-  "license": "MIT",
-  "dependencies": {
-    "npm-check": "^5.9.2"
-  }
+  "engines": {
+    "node": ">=10.30"
+  },
+  "license": "MIT"
 }

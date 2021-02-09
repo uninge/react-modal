@@ -2,22 +2,28 @@
 
 Powerful modal dialog component for React.
 
+[![GitHub Package Name](https://img.shields.io/github/package-json/name/uninge/react-modal?logo=github)](https://github.com/uninge/react-modal.git)
+[![GitHub Package Tags](https://img.shields.io/github/package-json/tags/uninge/react-modal?logo=github)](https://github.com/uninge/react-modal.git)
+[![React Peer Version](https://img.shields.io/npm/dependency-version/react-better-modal/peer/react?logo=react)](https://www.npmjs.com/package/react-better-modal)
+[![ReactDom Peer Version](https://img.shields.io/npm/dependency-version/react-better-modal/peer/react-dom?logo=react)](https://www.npmjs.com/package/react-better-modal)
+
+[![GitHub Language Count](https://img.shields.io/github/languages/count/uninge/react-modal?logo=github)](https://github.com/uninge/react-modal.git)
+[![GitHub Top Language](https://img.shields.io/github/languages/top/uninge/react-modal?logo=typescript)](https://github.com/uninge/react-modal.git)
+[![GitHub Repo Size](https://img.shields.io/github/repo-size/uninge/react-modal?logo=github)](https://github.com/uninge/react-modal.git)
+[![GitHub Code Size](https://img.shields.io/github/languages/code-size/uninge/react-modal?logo=github)](https://github.com/uninge/react-modal.git)
+[![GitHub Branch Checks State](https://img.shields.io/github/checks-status/uninge/react-modal/master?logo=github)](https://github.com/uninge/react-modal.git)
+[![GitHub Issues](https://img.shields.io/github/issues/uninge/react-modal?logo=github)](https://github.com/uninge/react-modal.git)
+[![GitHub Commit Activity](https://img.shields.io/github/commit-activity/m/uninge/react-modal?logo=github)](https://github.com/uninge/react-modal.git)
+[![GitHub Last Commit](https://img.shields.io/github/last-commit/uninge/react-modal?logo=github)](https://github.com/uninge/react-modal.git)
+[![GitHub Package Version](https://img.shields.io/github/package-json/v/uninge/react-modal?label=github%40latest&logo=github)](https://github.com/uninge/react-modal.git)
+[![GitHub Tag](https://img.shields.io/github/v/tag/uninge/react-modal?logo=github)](https://github.com/uninge/react-modal.git)
+[![GitHub License](https://img.shields.io/github/license/uninge/react-modal?logo=github)](https://github.com/uninge/react-modal.git)
+
 [![Npm Bundle Size](https://img.shields.io/bundlephobia/min/react-better-modal?logo=npm)](https://www.npmjs.com/package/react-better-modal)
 [![Npm Bundle Size](https://img.shields.io/bundlephobia/minzip/react-better-modal?logo=npm)](https://www.npmjs.com/package/react-better-modal)
 [![Npm Downloads](https://img.shields.io/npm/dy/react-better-modal?logo=npm)](https://www.npmjs.com/package/react-better-modal)
 [![Npm Version](https://img.shields.io/npm/v/react-better-modal?label=npm%40latest&logo=npm)](https://www.npmjs.com/package/react-better-modal)
-
-[![GitHub Language Count](https://img.shields.io/github/languages/count/uninge/react-modal?logo=github)](https://github.com/uninge/react-modal.git)
-[![GitHub Top Language](https://img.shields.io/github/languages/top/uninge/react-modal?logo=typescript)](https://github.com/uninge/react-modal.git)
-[![GitHub Code Size](https://img.shields.io/github/languages/code-size/uninge/react-modal?logo=github)](https://github.com/uninge/react-modal.git)
-[![GitHub Repo Size](https://img.shields.io/github/repo-size/uninge/react-modal?logo=github)](https://github.com/uninge/react-modal.git)
-[![GitHub tag](https://img.shields.io/github/v/tag/uninge/react-modal?logo=github)](https://github.com/uninge/react-modal.git)
-[![GitHub Branch Checks State](https://img.shields.io/github/checks-status/uninge/react-modal/master?logo=github)](https://github.com/uninge/react-modal.git)
-[![GitHub Issues](https://img.shields.io/github/issues/uninge/react-modal?logo=github)](https://github.com/uninge/react-modal.git)
-[![GitHub Commit Activity](https://img.shields.io/github/commit-activity/m/uninge/react-modal?logo=github)](https://github.com/uninge/react-modal.git)
-[![GitHub Version](https://img.shields.io/github/package-json/v/uninge/react-modal?label=github%40latest&logo=github)](https://github.com/uninge/react-modal.git)
-[![GitHub License](https://img.shields.io/github/license/uninge/react-modal?logo=github)](https://github.com/uninge/react-modal.git)
-
+[![Npm License](https://img.shields.io/npm/l/react-better-modal?logo=npm)](https://www.npmjs.com/package/react-better-modal)
 
 一个功能强大的React弹窗组件。支持缩放、拖拽、最大化最小化、键盘事件移动弹窗位置(`↑→↓←`)、键盘事件缩放(`CTRL + ↑→↓←`)、键盘事件最大化最小化(`ALT + ↑↓`)。
 
