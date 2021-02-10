@@ -4,7 +4,7 @@ A powerful modal dialog component for React.
 
 <div align="center">
 	<a href="https://github.com/uninge/react-modal#react-modal">
-  	<img width="100%" align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=uninge&repo=react-modal&show_owner=true&theme=radical&t=1" alt="package">
+  	<img width="100%" align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=uninge&repo=react-modal&show_owner=true&theme=radical" alt="package">
 	</a>
 </div>
 <p></p>
