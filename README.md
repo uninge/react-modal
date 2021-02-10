@@ -3,62 +3,62 @@
 A powerful modal dialog component for React.
 
 <div align="center">
-	<a href="https://github.com/uninge/react-modal#react-modal">
+	<a target="_blank" href="https://github.com/uninge/react-modal#react-modal">
   	<img width="100%" align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=uninge&repo=react-modal&show_owner=true&theme=radical" alt="package">
 	</a>
 </div>
 <p></p>
 <div align="center">
-	<a href="https://github.com/uninge/react-modal">
+	<a target="_blank" href="https://github.com/uninge/react-modal">
 		<img align="center" src="https://img.shields.io/github/package-json/name/uninge/react-modal?logo=github" alt="name">
 	</a>
-	<a href="https://github.com/uninge/react-modal">
+	<a target="_blank" href="https://github.com/uninge/react-modal">
 		<img align="center" src="https://img.shields.io/github/package-json/v/uninge/react-modal?label=github%40latest&logo=github" alt="version">
 	</a>
-	<a href="https://github.com/uninge/react-modal/blob/main/package.json">
+	<a target="_blank" href="https://github.com/uninge/react-modal/blob/main/package.json">
 		<img align="center" src="https://img.shields.io/npm/dependency-version/react-better-modal/peer/react?logo=react" alt="react">
 	</a>
-	<a href="https://github.com/uninge/react-modal/blob/main/package.json">
+	<a target="_blank" href="https://github.com/uninge/react-modal/blob/main/package.json">
 		<img align="center" src="https://img.shields.io/npm/dependency-version/react-better-modal/peer/react-dom?logo=react" alt="react">
 	</a>
 </div>
 <div align="center">
-	<a href="https://github.com/uninge/react-modal">
+	<a target="_blank" href="https://github.com/uninge/react-modal">
 		<img align="center" src="https://img.shields.io/github/languages/count/uninge/react-modal?logo=github" alt="languages count">
 	</a>
-	<a href="https://github.com/uninge/react-modal">
+	<a target="_blank" href="https://github.com/uninge/react-modal">
 		<img align="center" src="https://img.shields.io/github/languages/top/uninge/react-modal?logo=typescript" alt="top language">
 	</a>
-	<a href="https://github.com/uninge/react-modal">
+	<a target="_blank" href="https://github.com/uninge/react-modal">
 		<img align="center" src="https://img.shields.io/github/repo-size/uninge/react-modal?logo=github" alt="repo size">
 	</a>
-	<a href="https://github.com/uninge/react-modal">
+	<a target="_blank" href="https://github.com/uninge/react-modal">
 		<img align="center" src="https://img.shields.io/github/languages/code-size/uninge/react-modal?logo=github" alt="code size">
 	</a>
-	<a href="https://github.com/uninge/react-modal/commits/main">
+	<a target="_blank" href="https://github.com/uninge/react-modal/commits/main">
 		<img align="center" src="https://img.shields.io/github/commit-activity/y/uninge/react-modal?logo=github" alt="commit activity">
 	</a>
-	<a href="https://github.com/uninge/react-modal/blob/main/LICENSE">
+	<a target="_blank" href="https://github.com/uninge/react-modal/blob/main/LICENSE">
 		<img align="center" src="https://img.shields.io/github/license/uninge/react-modal?logo=github" alt="license">
 	</a>
 </div>
 <div align="center">
-	<a href="https://www.npmjs.com/package/react-better-modal">
+	<a target="_blank" href="https://www.npmjs.com/package/react-better-modal">
 		<img align="center" src="https://img.shields.io/npm/types/react-better-modal?logo=npm" alt="minified size">
 	</a>
-	<a href="https://www.npmjs.com/package/react-better-modal">
+	<a target="_blank" href="https://www.npmjs.com/package/react-better-modal">
 		<img align="center" src="https://img.shields.io/bundlephobia/min/react-better-modal?logo=npm" alt="minified size">
 	</a>
-	<a href="https://www.npmjs.com/package/react-better-modal">
+	<a target="_blank" href="https://www.npmjs.com/package/react-better-modal">
 		<img align="center" src="https://img.shields.io/bundlephobia/minzip/react-better-modal?logo=npm" alt="minzipped size">
 	</a>
-	<a href="https://www.npmjs.com/package/react-better-modal">
+	<a target="_blank" href="https://www.npmjs.com/package/react-better-modal">
 		<img align="center" src="https://img.shields.io/npm/dy/react-better-modal?logo=npm" alt="npm downloads">
 	</a>
-	<a href="https://www.npmjs.com/package/react-better-modal#installation">
+	<a target="_blank" href="https://www.npmjs.com/package/react-better-modal#installation">
 		<img align="center" src="https://img.shields.io/npm/v/react-better-modal?label=npm%40latest&logo=npm" alt="npm version">
 	</a>
-	<a href="https://www.npmjs.com/package/react-better-modal">
+	<a target="_blank" href="https://www.npmjs.com/package/react-better-modal">
 		<img align="center" src="https://img.shields.io/npm/l/react-better-modal?logo=npm" alt="npm license">
 	</a>
 </div>
